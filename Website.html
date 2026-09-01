@@ -1,0 +1,2792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Peça Ajuda | Solution Tech</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
+        .header {
+            width: 100%;
+            padding: 18px 7%;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #2563eb;
+            color: white;
+
+            border-radius: 13px;
+
+            font-size: 22px;
+        }
+
+        .logo strong {
+            display: block;
+            font-size: 19px;
+            color: #172033;
+        }
+
+        .logo span {
+            display: block;
+            margin-top: 3px;
+
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding: 90px 7%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eaf2ff,
+                    #ffffff 55%,
+                    #effcf4
+                );
+        }
+
+        .hero-content {
+            max-width: 1150px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .tag {
+            display: inline-block;
+
+            padding: 7px 12px;
+
+            background: #dbeafe;
+            color: #2563eb;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.02;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            color: #64748b;
+
+            font-size: 18px;
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+
+        /* =========================
+           BOTÕES
+        ========================= */
+
+        .btn {
+            border: none;
+
+            padding: 14px 19px;
+
+            border-radius: 11px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+
+            border: 1px solid #bfdbfe;
+        }
+
+        .btn-secondary:hover {
+            background: #eff6ff;
+        }
+
+
+        /* =========================
+           PREVIEW DO CHAT
+        ========================= */
+
+        .hero-preview {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 20px 50px rgba(15, 23, 42, 0.12);
+
+            border: 1px solid #e5e7eb;
+        }
+
+        .preview-header {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 22px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #2563eb;
+            color: white;
+
+            border-radius: 14px;
+
+            font-size: 23px;
+        }
+
+        .preview-header small {
+            display: block;
+
+            margin-top: 4px;
+
+            color: #16a34a;
+
+            font-size: 11px;
+        }
+
+        .green-dot {
+            display: inline-block;
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+
+            margin-right: 4px;
+        }
+
+        .preview-message {
+            padding: 14px;
+
+            border-radius: 14px;
+
+            background: #f1f5f9;
+
+            margin-bottom: 10px;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        .preview-message.user {
+            margin-left: 35px;
+
+            background: #dbeafe;
+
+            color: #1e40af;
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        .section {
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 80px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #64748b;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           SERVIÇOS
+        ========================= */
+
+        .services-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .service-card {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 18px;
+
+            padding: 23px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #93c5fd;
+
+            box-shadow:
+                0 12px 30px rgba(15, 23, 42, 0.08);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #eff6ff;
+
+            border-radius: 14px;
+
+            font-size: 24px;
+
+            margin-bottom: 16px;
+        }
+
+        .service-card strong {
+            display: block;
+
+            color: #172033;
+
+            margin-bottom: 7px;
+        }
+
+        .service-card span {
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CHAT
+        ========================= */
+
+        .chat-section {
+            background: #eaf2ff;
+
+            padding: 80px 20px;
+        }
+
+        .chat-wrapper {
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .chat-box {
+            background: white;
+
+            border-radius: 23px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 20px 50px rgba(15, 23, 42, 0.12);
+
+            border: 1px solid #dbe3ef;
+        }
+
+
+        /* CABEÇALHO DO CHAT */
+
+        .chat-header {
+            background: #2563eb;
+
+            color: white;
+
+            padding: 18px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+        .chat-avatar {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255,255,255,0.18);
+
+            border-radius: 14px;
+
+            font-size: 23px;
+        }
+
+        .chat-info {
+            flex: 1;
+        }
+
+        .chat-info strong {
+            display: block;
+
+            font-size: 15px;
+        }
+
+        .chat-info span {
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 11px;
+
+            opacity: 0.9;
+        }
+
+        .clear-button {
+            width: 40px;
+            height: 40px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: rgba(255,255,255,0.15);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 20px;
+        }
+
+        .clear-button:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+
+        /* MENSAGENS */
+
+        .messages {
+            height: 440px;
+
+            overflow-y: auto;
+
+            padding: 22px;
+
+            background: #f8fafc;
+        }
+
+        .message {
+            display: flex;
+
+            margin-bottom: 16px;
+
+            animation: aparecer 0.2s ease;
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .bubble {
+            max-width: 78%;
+
+            padding: 14px 16px;
+
+            border-radius: 17px;
+
+            font-size: 14px;
+
+            line-height: 1.55;
+        }
+
+        .message.bot .bubble {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.user .bubble {
+            background: #2563eb;
+
+            color: white;
+
+            border-bottom-right-radius: 5px;
+        }
+
+        .bubble-action {
+            margin-top: 12px;
+
+            display: inline-block;
+
+            border: none;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 9px 12px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+        .bubble-action:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* DIGITANDO */
+
+        .typing {
+            display: flex;
+
+            gap: 4px;
+
+            align-items: center;
+        }
+
+        .typing span {
+            width: 6px;
+            height: 6px;
+
+            background: #94a3b8;
+
+            border-radius: 50%;
+
+            animation: typing 1s infinite;
+        }
+
+        .typing span:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .typing span:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes typing {
+
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-4px);
+            }
+        }
+
+
+        /* BOTÕES RÁPIDOS */
+
+        .quick-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            padding: 14px;
+
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .quick-actions button {
+            border: 1px solid #bfdbfe;
+
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            padding: 9px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .quick-actions button:hover {
+            background: #dbeafe;
+        }
+
+
+        /* INPUT */
+
+        .input-area {
+            display: flex;
+
+            gap: 10px;
+
+            padding: 15px;
+
+            border-top: 1px solid #e2e8f0;
+        }
+
+        #userInput {
+            flex: 1;
+
+            min-width: 0;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 12px;
+
+            padding: 14px;
+
+            outline: none;
+
+            font-size: 14px;
+        }
+
+        #userInput:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.1);
+        }
+
+        .send-button {
+            width: 52px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+        .send-button:hover {
+            background: #1d4ed8;
+        }
+
+        .send-button:disabled {
+            opacity: 0.5;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =========================
+           IDENTIFICAÇÃO DO PROJETO
+        ========================= */
+
+        .project-credit {
+            text-align: center;
+
+            margin-top: -20px;
+
+            margin-bottom: 45px;
+        }
+
+        .project-credit .group-name {
+            display: block;
+
+            color: #2563eb;
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 6px;
+        }
+
+        .project-credit .project-name {
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           DOAÇÕES
+        ========================= */
+
+        .donation-box {
+            background: #172033;
+
+            color: white;
+
+            border-radius: 24px;
+
+            padding: 50px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 40px;
+
+            align-items: center;
+        }
+
+        .light-tag {
+            background: rgba(255,255,255,0.1);
+
+            color: white;
+        }
+
+        .donation-box h2 {
+            font-size: 34px;
+
+            margin-bottom: 15px;
+        }
+
+        .donation-box p {
+            color: #cbd5e1;
+
+            line-height: 1.7;
+        }
+
+        .donation-list {
+            display: grid;
+
+            gap: 10px;
+        }
+
+        .donation-list div {
+            padding: 14px;
+
+            background: rgba(255,255,255,0.07);
+
+            border-radius: 10px;
+
+            display: flex;
+
+            gap: 10px;
+
+            align-items: center;
+        }
+
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            background: white;
+
+            border-top: 1px solid #e2e8f0;
+
+            padding: 35px 20px;
+
+            color: #64748b;
+        }
+
+        footer strong {
+            color: #172033;
+
+            font-size: 18px;
+        }
+
+        footer p {
+            margin: 8px 0;
+
+            font-size: 13px;
+        }
+
+        footer small {
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .donation-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .messages {
+                height: 430px;
+            }
+
+            .bubble {
+                max-width: 88%;
+            }
+
+            .donation-box {
+                padding: 30px 22px;
+            }
+
+            .input-area {
+                padding: 10px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         CABEÇALHO
+    ========================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ❤
+            </div>
+
+            <div>
+
+                <strong>
+                    Peça Ajuda
+                </strong>
+
+                <span>
+                    Conectando pessoas a oportunidades de ajuda
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="#inicio">
+                Início
+            </a>
+
+            <a href="#servicos">
+                Serviços
+            </a>
+
+            <a href="#chat">
+                Assistente
+            </a>
+
+            <a href="#doacoes">
+                Doações
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         INÍCIO
+    ========================= -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+
+            <div class="hero-text">
+
+                <span class="tag">
+                    PROJETO SOCIAL
+                </span>
+
+
+                <h1>
+
+                    Informação pode
+
+                    <span>
+                        mudar vidas.
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    O Peça Ajuda foi criado para facilitar
+                    o acesso a informações sobre abrigos,
+                    alimentação, higiene, saúde, roupas,
+                    documentos e outros serviços de apoio.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <button
+                        class="btn btn-primary"
+                        id="startChatButton">
+
+                        💬 Conversar com o assistente
+
+                    </button>
+
+
+                    <button
+                        class="btn btn-secondary"
+                        id="locationButton">
+
+                        📍 Ajuda perto de mim
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="hero-preview">
+
+                <div class="preview-header">
+
+                    <div class="avatar">
+                        🤖
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Peça Ajuda
+                        </strong>
+
+                        <small>
+
+                            <span class="green-dot"></span>
+
+                            Online
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="preview-message">
+
+                    Olá! Como posso ajudar você hoje?
+
+                </div>
+
+
+                <div class="preview-message user">
+
+                    Preciso encontrar um lugar para dormir.
+
+                </div>
+
+
+                <div class="preview-message">
+
+                    Claro! Posso ajudar você a procurar
+                    serviços de acolhimento.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SERVIÇOS
+    ========================= -->
+
+    <section class="section" id="servicos">
+
+        <div class="section-title">
+
+            <span class="tag">
+                ENCONTRE AJUDA
+            </span>
+
+            <h2>
+                O que você está procurando?
+            </h2>
+
+            <p>
+                Escolha uma opção para conversar com o assistente.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <button
+                class="service-card"
+                data-question="Preciso encontrar um abrigo">
+
+                <div class="service-icon">
+                    🏠
+                </div>
+
+                <strong>
+                    Abrigo
+                </strong>
+
+                <span>
+                    Locais de acolhimento
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="service-card"
+                data-question="Onde posso conseguir comida?">
+
+                <div class="service-icon">
+                    🍲
+                </div>
+
+                <strong>
+                    Alimentação
+                </strong>
+
+                <span>
+                    Refeições e alimentos
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="service-card"
+                data-question="Onde posso conseguir roupas?">
+
+                <div class="service-icon">
+                    👕
+                </div>
+
+                <strong>
+                    Roupas
+                </strong>
+
+                <span>
+                    Roupas e cobertores
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="service-card"
+                data-question="Onde posso tomar banho?">
+
+                <div class="service-icon">
+                    🧼
+                </div>
+
+                <strong>
+                    Higiene
+                </strong>
+
+                <span>
+                    Banho e higiene
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="service-card"
+                data-question="Preciso de atendimento de saúde">
+
+                <div class="service-icon">
+                    🏥
+                </div>
+
+                <strong>
+                    Saúde
+                </strong>
+
+                <span>
+                    Atendimento médico
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="service-card"
+                data-question="Preciso de ajuda com documentos">
+
+                <div class="service-icon">
+                    🪪
+                </div>
+
+                <strong>
+                    Documentos
+                </strong>
+
+                <span>
+                    Documentação
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="service-card"
+                data-question="Quero fazer uma doação">
+
+                <div class="service-icon">
+                    🎁
+                </div>
+
+                <strong>
+                    Quero doar
+                </strong>
+
+                <span>
+                    Como ajudar
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="service-card"
+                data-question="Preciso de outro tipo de ajuda">
+
+                <div class="service-icon">
+                    💙
+                </div>
+
+                <strong>
+                    Outra ajuda
+                </strong>
+
+                <span>
+                    Falar com o assistente
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CHAT
+    ========================= -->
+
+    <section class="chat-section" id="chat">
+
+        <div class="chat-wrapper">
+
+
+            <div class="section-title">
+
+                <span class="tag">
+                    ASSISTENTE
+                </span>
+
+                <h2>
+                    Converse com o Peça Ajuda
+                </h2>
+
+                <p>
+                    Explique o que você precisa usando suas próprias palavras.
+                </p>
+
+            </div>
+
+
+            <!-- IDENTIFICAÇÃO DO GRUPO
+                 LOCALIZADA NA ÁREA INDICADA -->
+
+            <div class="project-credit">
+
+                <span class="group-name">
+                    Solution Tech
+                </span>
+
+                <span class="project-name">
+                    Trabalho feito para Projeto CEEP 2026
+                </span>
+
+            </div>
+
+
+            <div class="chat-box">
+
+
+                <!-- CABEÇALHO -->
+
+                <div class="chat-header">
+
+                    <div class="chat-avatar">
+                        🤖
+                    </div>
+
+                    <div class="chat-info">
+
+                        <strong>
+                            Peça Ajuda
+                        </strong>
+
+                        <span>
+
+                            <span class="green-dot"></span>
+
+                            Assistente disponível
+
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="clear-button"
+                        id="clearChatButton"
+                        title="Limpar conversa">
+
+                        ↻
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- MENSAGENS -->
+
+                <div
+                    class="messages"
+                    id="messages">
+
+                </div>
+
+
+
+                <!-- BOTÕES RÁPIDOS -->
+
+                <div class="quick-actions">
+
+
+                    <button
+                        data-question="Preciso encontrar um abrigo">
+
+                        🏠 Abrigo
+
+                    </button>
+
+
+                    <button
+                        data-question="Onde posso conseguir comida?">
+
+                        🍲 Comida
+
+                    </button>
+
+
+                    <button
+                        data-question="Onde posso conseguir roupas?">
+
+                        👕 Roupas
+
+                    </button>
+
+
+                    <button
+                        data-question="Onde posso tomar banho?">
+
+                        🧼 Banho
+
+                    </button>
+
+
+                    <button
+                        data-question="Preciso de atendimento de saúde">
+
+                        🏥 Saúde
+
+                    </button>
+
+
+                    <button
+                        data-question="Quero fazer uma doação">
+
+                        🎁 Doar
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- CAMPO DE TEXTO -->
+
+                <div class="input-area">
+
+                    <input
+                        type="text"
+                        id="userInput"
+                        placeholder="Digite o que você precisa..."
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        class="send-button"
+                        id="sendButton">
+
+                        ➤
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         DOAÇÕES
+    ========================= -->
+
+    <section class="section" id="doacoes">
+
+
+        <div class="donation-box">
+
+
+            <div>
+
+                <span class="tag light-tag">
+                    FAÇA A DIFERENÇA
+                </span>
+
+
+                <h2>
+                    Você também pode ajudar.
+                </h2>
+
+
+                <p>
+
+                    O Peça Ajuda também conecta pessoas
+                    que querem ajudar com formas de contribuir.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="donation-list">
+
+
+                <div>
+                    👕
+                    <span>
+                        Roupas em bom estado
+                    </span>
+                </div>
+
+
+                <div>
+                    🛏️
+                    <span>
+                        Cobertores
+                    </span>
+                </div>
+
+
+                <div>
+                    🧼
+                    <span>
+                        Produtos de higiene
+                    </span>
+                </div>
+
+
+                <div>
+                    🍚
+                    <span>
+                        Alimentos
+                    </span>
+                </div>
+
+
+                <div>
+                    🤝
+                    <span>
+                        Trabalho voluntário
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
+
+    <footer>
+
+        <strong>
+            Peça Ajuda
+        </strong>
+
+
+        <p>
+            Solution Tech
+        </p>
+
+
+        <p>
+            Trabalho feito para Projeto CEEP 2026
+        </p>
+
+
+        <small>
+
+            Projeto escolar de tecnologia e impacto social.
+
+        </small>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+         CHATBOT
+    ========================= -->
+
+    <script>
+
+
+        /* ELEMENTOS */
+
+        const messages =
+            document.getElementById("messages");
+
+        const userInput =
+            document.getElementById("userInput");
+
+        const sendButton =
+            document.getElementById("sendButton");
+
+        const startChatButton =
+            document.getElementById("startChatButton");
+
+        const locationButton =
+            document.getElementById("locationButton");
+
+        const clearChatButton =
+            document.getElementById("clearChatButton");
+
+
+
+        /* MENSAGEM INICIAL */
+
+        const mensagemInicial = `
+
+            Olá! 👋
+
+            <br><br>
+
+            Eu sou o <strong>Peça Ajuda</strong>.
+
+            <br><br>
+
+            Posso conversar com você e orientar sobre:
+
+            <br><br>
+
+            🏠 Abrigos
+
+            <br>
+
+            🍲 Alimentação
+
+            <br>
+
+            👕 Roupas e cobertores
+
+            <br>
+
+            🧼 Higiene e banho
+
+            <br>
+
+            🏥 Saúde
+
+            <br>
+
+            🪪 Documentos
+
+            <br>
+
+            🎁 Doações
+
+            <br><br>
+
+            Escreva o que você precisa.
+
+        `;
+
+
+
+        /* ADICIONAR MENSAGEM */
+
+        function adicionarMensagem(texto, tipo) {
+
+
+            const message =
+                document.createElement("div");
+
+
+            message.className =
+                "message " + tipo;
+
+
+            const bubble =
+                document.createElement("div");
+
+
+            bubble.className =
+                "bubble";
+
+
+            bubble.innerHTML =
+                texto;
+
+
+            message.appendChild(
+                bubble
+            );
+
+
+            messages.appendChild(
+                message
+            );
+
+
+            messages.scrollTop =
+                messages.scrollHeight;
+
+        }
+
+
+
+        /* DIGITANDO */
+
+        function mostrarDigitando() {
+
+
+            const message =
+                document.createElement("div");
+
+
+            message.className =
+                "message bot";
+
+
+            message.id =
+                "typingMessage";
+
+
+            const bubble =
+                document.createElement("div");
+
+
+            bubble.className =
+                "bubble";
+
+
+            bubble.innerHTML = `
+
+                <div class="typing">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            `;
+
+
+            message.appendChild(
+                bubble
+            );
+
+
+            messages.appendChild(
+                message
+            );
+
+
+            messages.scrollTop =
+                messages.scrollHeight;
+
+        }
+
+
+
+        /* REMOVER DIGITANDO */
+
+        function removerDigitando() {
+
+            const typing =
+                document.getElementById(
+                    "typingMessage"
+                );
+
+
+            if (typing) {
+
+                typing.remove();
+
+            }
+
+        }
+
+
+
+        /* ENVIAR MENSAGEM */
+
+        function enviarMensagem() {
+
+
+            const texto =
+                userInput.value.trim();
+
+
+            if (texto === "") {
+
+                return;
+
+            }
+
+
+            adicionarMensagem(
+                texto,
+                "user"
+            );
+
+
+            userInput.value =
+                "";
+
+
+            sendButton.disabled =
+                true;
+
+
+            mostrarDigitando();
+
+
+            setTimeout(
+                function() {
+
+
+                    removerDigitando();
+
+
+                    const resposta =
+                        gerarResposta(texto);
+
+
+                    adicionarMensagem(
+                        resposta,
+                        "bot"
+                    );
+
+
+                    sendButton.disabled =
+                        false;
+
+
+                    userInput.focus();
+
+
+                },
+                700
+            );
+
+        }
+
+
+
+        /* BOTÃO ENVIAR */
+
+        sendButton.addEventListener(
+            "click",
+            enviarMensagem
+        );
+
+
+
+        /* ENTER */
+
+        userInput.addEventListener(
+            "keydown",
+            function(event) {
+
+
+                if (
+                    event.key === "Enter"
+                ) {
+
+
+                    event.preventDefault();
+
+
+                    enviarMensagem();
+
+                }
+
+            }
+        );
+
+
+
+        /* ABRIR CHAT */
+
+        function abrirChat() {
+
+
+            document
+                .getElementById("chat")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+
+            setTimeout(
+                function() {
+
+                    userInput.focus();
+
+                },
+                500
+            );
+
+        }
+
+
+
+        /* BOTÃO DO HERO */
+
+        startChatButton.addEventListener(
+            "click",
+            abrirChat
+        );
+
+
+
+        /* BOTÕES DE SERVIÇO */
+
+        const serviceButtons =
+            document.querySelectorAll(
+                ".service-card"
+            );
+
+
+        serviceButtons.forEach(
+            function(button) {
+
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+
+                        const pergunta =
+                            button.dataset.question;
+
+
+                        abrirChat();
+
+
+                        setTimeout(
+                            function() {
+
+                                enviarPergunta(
+                                    pergunta
+                                );
+
+                            },
+                            500
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* BOTÕES RÁPIDOS */
+
+        const quickButtons =
+            document.querySelectorAll(
+                ".quick-actions button"
+            );
+
+
+        quickButtons.forEach(
+            function(button) {
+
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+
+                        const pergunta =
+                            button.dataset.question;
+
+
+                        enviarPergunta(
+                            pergunta
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* ENVIAR PERGUNTA */
+
+        function enviarPergunta(
+            pergunta
+        ) {
+
+
+            userInput.value =
+                pergunta;
+
+
+            enviarMensagem();
+
+        }
+
+
+
+        /* LIMPAR CHAT */
+
+        clearChatButton.addEventListener(
+            "click",
+            function() {
+
+
+                messages.innerHTML =
+                    "";
+
+
+                adicionarMensagem(
+                    mensagemInicial,
+                    "bot"
+                );
+
+
+                userInput.focus();
+
+            }
+        );
+
+
+
+        /* =========================
+           INTELIGÊNCIA DO CHATBOT
+        ========================= */
+
+        function gerarResposta(texto) {
+
+
+            const mensagem =
+                texto
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(
+                    /[\u0300-\u036f]/g,
+                    ""
+                );
+
+
+
+            /* SAUDAÇÕES */
+
+            if (
+
+                mensagem.includes("oi") ||
+                mensagem.includes("ola") ||
+                mensagem.includes("bom dia") ||
+                mensagem.includes("boa tarde") ||
+                mensagem.includes("boa noite")
+
+            ) {
+
+
+                return `
+
+                    Olá! 😊
+
+                    <br><br>
+
+                    Estou aqui para ajudar.
+
+                    <br><br>
+
+                    Você pode perguntar sobre
+                    <strong>abrigo, comida, roupas,
+                    higiene, saúde, documentos
+                    ou doações.</strong>
+
+                    <br><br>
+
+                    O que você precisa?
+
+                `;
+
+            }
+
+
+
+            /* ABRIGO */
+
+            if (
+
+                mensagem.includes("abrigo") ||
+                mensagem.includes("dormir") ||
+                mensagem.includes("dormida") ||
+                mensagem.includes("onde ficar") ||
+                mensagem.includes("lugar para ficar") ||
+                mensagem.includes("acolhimento") ||
+                mensagem.includes("casa de passagem")
+
+            ) {
+
+
+                return `
+
+                    Entendi. Você está procurando
+                    <strong>um lugar para ficar
+                    ou passar a noite.</strong>
+
+                    <br><br>
+
+                    Você pode procurar por:
+
+                    <br>
+
+                    🏠 Abrigos
+
+                    <br>
+
+                    🏠 Casas de passagem
+
+                    <br>
+
+                    🏠 Serviços de acolhimento
+
+                    <br><br>
+
+                    Se você me disser sua cidade,
+                    posso orientar melhor sobre
+                    como procurar.
+
+                    <br><br>
+
+                    <button
+                        class="bubble-action"
+                        onclick="buscarNoMapa('abrigo e assistência social')">
+
+                        📍 Procurar no mapa
+
+                    </button>
+
+                `;
+
+            }
+
+
+
+            /* COMIDA */
+
+            if (
+
+                mensagem.includes("comida") ||
+                mensagem.includes("comer") ||
+                mensagem.includes("fome") ||
+                mensagem.includes("alimentacao") ||
+                mensagem.includes("alimento") ||
+                mensagem.includes("refeicao") ||
+                mensagem.includes("refeicoes")
+
+            ) {
+
+
+                return `
+
+                    Claro. Para encontrar alimentação,
+                    procure por serviços como:
+
+                    <br><br>
+
+                    🍲 Restaurante Popular
+
+                    <br>
+
+                    🍲 Cozinha comunitária
+
+                    <br>
+
+                    🍲 Centros de acolhimento
+
+                    <br>
+
+                    🍲 Projetos de alimentação solidária
+
+                    <br><br>
+
+                    Também posso ajudar a procurar
+                    no mapa.
+
+                    <br><br>
+
+                    <button
+                        class="bubble-action"
+                        onclick="buscarNoMapa('Restaurante Popular')">
+
+                        📍 Procurar alimentação
+
+                    </button>
+
+                `;
+
+            }
+
+
+
+            /* ROUPAS */
+
+            if (
+
+                mensagem.includes("roupa") ||
+                mensagem.includes("roupas") ||
+                mensagem.includes("agasalho") ||
+                mensagem.includes("cobertor") ||
+                mensagem.includes("vestimenta")
+
+            ) {
+
+
+                return `
+
+                    Para conseguir roupas ou cobertores,
+                    você pode procurar:
+
+                    <br><br>
+
+                    👕 Campanhas do agasalho
+
+                    <br>
+
+                    👕 Pontos de doação
+
+                    <br>
+
+                    👕 Organizações sociais
+
+                    <br>
+
+                    👕 Centros comunitários
+
+                    <br><br>
+
+                    <button
+                        class="bubble-action"
+                        onclick="buscarNoMapa('doação de roupas')">
+
+                        📍 Procurar doações
+
+                    </button>
+
+                `;
+
+            }
+
+
+
+            /* HIGIENE */
+
+            if (
+
+                mensagem.includes("banho") ||
+                mensagem.includes("higiene") ||
+                mensagem.includes("sabonete") ||
+                mensagem.includes("escovar") ||
+                mensagem.includes("toalha") ||
+                mensagem.includes("chuveiro")
+
+            ) {
+
+
+                return `
+
+                    Para higiene e banho,
+                    procure por <strong>centros
+                    de acolhimento, serviços sociais
+                    e projetos comunitários.</strong>
+
+                    <br><br>
+
+                    Alguns locais podem oferecer
+                    banho, kits de higiene e outros
+                    cuidados básicos.
+
+                    <br><br>
+
+                    <button
+                        class="bubble-action"
+                        onclick="buscarNoMapa('centro de acolhimento banho')">
+
+                        📍 Procurar locais
+
+                    </button>
+
+                `;
+
+            }
+
+
+
+            /* SAÚDE */
+
+            if (
+
+                mensagem.includes("saude") ||
+                mensagem.includes("medico") ||
+                mensagem.includes("hospital") ||
+                mensagem.includes("upa") ||
+                mensagem.includes("ubs") ||
+                mensagem.includes("doente") ||
+                mensagem.includes("machucado") ||
+                mensagem.includes("ferimento")
+
+            ) {
+
+
+                return `
+
+                    Para atendimento de saúde,
+                    você pode procurar uma
+                    <strong>UBS, UPA ou serviço
+                    público de saúde.</strong>
+
+                    <br><br>
+
+                    Se houver uma situação grave
+                    ou risco imediato à vida,
+                    procure atendimento de
+                    emergência.
+
+                    <br><br>
+
+                    <button
+                        class="bubble-action"
+                        onclick="buscarNoMapa('UBS unidade básica de saúde')">
+
+                        📍 Procurar UBS
+
+                    </button>
+
+                `;
+
+            }
+
+
+
+            /* DOCUMENTOS */
+
+            if (
+
+                mensagem.includes("documento") ||
+                mensagem.includes("documentos") ||
+                mensagem.includes("cpf") ||
+                mensagem.includes("rg") ||
+                mensagem.includes("identidade") ||
+                mensagem.includes("certidao")
+
+            ) {
+
+
+                return `
+
+                    Entendi. Para conseguir orientação
+                    sobre documentos, você pode procurar:
+
+                    <br><br>
+
+                    🪪 CRAS
+
+                    <br>
+
+                    🪪 Centros de atendimento ao cidadão
+
+                    <br>
+
+                    🪪 Serviços de assistência social
+
+                    <br>
+
+                    🪪 Órgãos públicos de documentação
+
+                    <br><br>
+
+                    <button
+                        class="bubble-action"
+                        onclick="buscarNoMapa('CRAS assistência social')">
+
+                        📍 Procurar CRAS
+
+                    </button>
+
+                `;
+
+            }
+
+
+
+            /* DOAÇÃO */
+
+            if (
+
+                mensagem.includes("doar") ||
+                mensagem.includes("doacao") ||
+                mensagem.includes("doacoes") ||
+                mensagem.includes("ajudar pessoas") ||
+                mensagem.includes("quero ajudar")
+
+            ) {
+
+
+                return `
+
+                    Que bom que você quer ajudar! 💙
+
+                    <br><br>
+
+                    Algumas formas de contribuir são:
+
+                    <br><br>
+
+                    👕 Roupas em bom estado
+
+                    <br>
+
+                    🛏️ Cobertores
+
+                    <br>
+
+                    🧼 Produtos de higiene
+
+                    <br>
+
+                    🍚 Alimentos
+
+                    <br>
+
+                    🤝 Trabalho voluntário
+
+                    <br><br>
+
+                    Antes de doar, procure uma
+                    organização confiável e pergunte
+                    quais itens ela realmente precisa.
+
+                    <br><br>
+
+                    <button
+                        class="bubble-action"
+                        onclick="buscarNoMapa('ponto de doação')">
+
+                        📍 Procurar ponto de doação
+
+                    </button>
+
+                `;
+
+            }
+
+
+
+            /* LOCALIZAÇÃO */
+
+            if (
+
+                mensagem.includes("perto de mim") ||
+                mensagem.includes("perto") ||
+                mensagem.includes("localizacao")
+
+            ) {
+
+
+                return `
+
+                    Posso tentar encontrar serviços
+                    próximos usando a localização
+                    do seu navegador.
+
+                    <br><br>
+
+                    <button
+                        class="bubble-action"
+                        onclick="localizarAjuda()">
+
+                        📍 Usar minha localização
+
+                    </button>
+
+                `;
+
+            }
+
+
+
+            /* AGRADECIMENTO */
+
+            if (
+
+                mensagem.includes("obrigado") ||
+                mensagem.includes("obrigada") ||
+                mensagem.includes("valeu")
+
+            ) {
+
+
+                return `
+
+                    Por nada! 💙
+
+                    <br><br>
+
+                    Espero que o Peça Ajuda consiga
+                    facilitar o acesso à informação.
+
+                    <br><br>
+
+                    Se precisar de outra coisa,
+                    pode perguntar.
+
+                `;
+
+            }
+
+
+
+            /* RESPOSTA PADRÃO */
+
+            return `
+
+                Quero ajudar, mas não consegui
+                identificar exatamente o que
+                você precisa.
+
+                <br><br>
+
+                Você pode escrever de outra maneira.
+
+                <br><br>
+
+                🏠 "Preciso de um lugar para dormir"
+
+                <br>
+
+                🍲 "Estou com fome"
+
+                <br>
+
+                👕 "Preciso de roupas"
+
+                <br>
+
+                🧼 "Onde posso tomar banho?"
+
+                <br>
+
+                🏥 "Preciso de atendimento médico"
+
+                <br>
+
+                🪪 "Preciso tirar meus documentos"
+
+                <br>
+
+                🎁 "Quero ajudar alguém"
+
+            `;
+
+        }
+
+
+
+        /* =========================
+           GOOGLE MAPS
+        ========================= */
+
+        function buscarNoMapa(
+            pesquisa
+        ) {
+
+
+            const url =
+                "https://www.google.com/maps/search/" +
+                encodeURIComponent(
+                    pesquisa
+                );
+
+
+            window.open(
+                url,
+                "_blank"
+            );
+
+        }
+
+
+
+        /* =========================
+           LOCALIZAÇÃO
+        ========================= */
+
+        function localizarAjuda() {
+
+
+            if (
+                !navigator.geolocation
+            ) {
+
+
+                adicionarMensagem(
+                    `
+                    Seu navegador não permite
+                    acessar a localização.
+
+                    <br><br>
+
+                    Você pode procurar manualmente
+                    pelo nome da sua cidade.
+                    `,
+                    "bot"
+                );
+
+
+                abrirChat();
+
+
+                return;
+
+            }
+
+
+            adicionarMensagem(
+                "📍 Vou tentar encontrar serviços próximos de você...",
+                "bot"
+            );
+
+
+            navigator.geolocation.getCurrentPosition(
+
+                function(position) {
+
+
+                    const latitude =
+                        position.coords.latitude;
+
+
+                    const longitude =
+                        position.coords.longitude;
+
+
+                    const url =
+                        "https://www.google.com/maps/search/abrigo+assistência+social/@" +
+                        latitude +
+                        "," +
+                        longitude +
+                        ",14z";
+
+
+                    adicionarMensagem(
+                        `
+                        Encontrei sua localização aproximada.
+
+                        <br><br>
+
+                        Clique abaixo para procurar
+                        <strong>abrigos e serviços de
+                        assistência próximos de você.</strong>
+
+                        <br><br>
+
+                        <button
+                            class="bubble-action"
+                            onclick="window.open('${url}', '_blank')">
+
+                            📍 Abrir mapa
+
+                        </button>
+                        `,
+                        "bot"
+                    );
+
+                },
+
+
+                function() {
+
+
+                    adicionarMensagem(
+                        `
+                        Não consegui acessar sua localização.
+
+                        <br><br>
+
+                        Isso pode acontecer se o navegador
+                        não tiver permissão para acessar
+                        sua localização.
+
+                        <br><br>
+
+                        Você pode continuar usando o chatbot
+                        normalmente e procurar pelo nome
+                        da cidade.
+                        `,
+                        "bot"
+                    );
+
+                }
+
+            );
+
+        }
+
+
+
+        /* BOTÃO DE LOCALIZAÇÃO */
+
+        locationButton.addEventListener(
+            "click",
+            function() {
+
+                abrirChat();
+
+                setTimeout(
+                    localizarAjuda,
+                    500
+                );
+
+            }
+        );
+
+
+
+        /* MENSAGEM INICIAL */
+
+        adicionarMensagem(
+            mensagemInicial,
+            "bot"
+        );
+
+
+    </script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+
+</html>
