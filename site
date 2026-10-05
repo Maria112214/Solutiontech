@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peça Ajuda | Solution Tech</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #172033;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 800;
+      color: #d71920;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #172033;
+      margin-left: 25px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #d71920;
+    }
+
+    .hero {
+      min-height: 600px;
+      padding: 70px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      background: linear-gradient(135deg, #ffffff, #eef3f8);
+    }
+
+    .hero-text {
+      max-width: 650px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #fee2e2;
+      color: #b91c1c;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 56px;
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    h1 span {
+      color: #d71920;
+    }
+
+    .hero-text p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #5b6474;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #d71920;
+      color: white;
+      padding: 15px 24px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .primary:hover {
+      background: #b91c1c;
+    }
+
+    .secondary {
+      background: white;
+      color: #172033;
+      border: 1px solid #d5d9df;
+      padding: 15px 24px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .robot-area {
+      width: 330px;
+      height: 330px;
+      background: white;
+      border-radius: 35px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .robot {
+      font-size: 110px;
+      margin-bottom: 10px;
+    }
+
+    .robot-area strong {
+      font-size: 21px;
+    }
+
+    .robot-area small {
+      margin-top: 7px;
+      color: #687386;
+    }
+
+    section {
+      padding: 70px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #687386;
+      line-height: 1.6;
+    }
+
+    .credit {
+      text-align: center;
+      margin: -25px auto 45px;
+      color: #687386;
+    }
+
+    .credit strong {
+      color: #d71920;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .step {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,.06);
+    }
+
+    .step-number {
+      width: 55px;
+      height: 55px;
+      margin: auto auto 18px;
+      border-radius: 50%;
+      background: #d71920;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .step h3 {
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: #687386;
+      line-height: 1.5;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 25px;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+
+    .icon {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 9px;
+    }
+
+    .card p {
+      color: #687386;
+      line-height: 1.5;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .map-button {
+      width: 100%;
+      padding: 11px;
+      border-radius: 8px;
+      background: #172033;
+      color: white;
+      font-weight: bold;
+    }
+
+    .map-button:hover {
+      background: #d71920;
+    }
+
+    .chat-section {
+      background: #111827;
+      color: white;
+    }
+
+    .chat-section .section-title p {
+      color: #b9c1ce;
+    }
+
+    .chat-container {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      border-radius: 22px;
+      overflow: hidden;
+      color: #172033;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+
+    .chat-header {
+      background: #d71920;
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .chat-header .mini-robot {
+      font-size: 40px;
+    }
+
+    .chat-header h3 {
+      margin-bottom: 3px;
+    }
+
+    .chat-header small {
+      opacity: .85;
+    }
+
+    .messages {
+      height: 430px;
+      padding: 20px;
+      overflow-y: auto;
+      background: #f7f8fa;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 13px 16px;
+      border-radius: 15px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .bot {
+      background: white;
+      border: 1px solid #e5e7eb;
+      margin-right: auto;
+    }
+
+    .user {
+      background: #d71920;
+      color: white;
+      margin-left: auto;
+    }
+
+    .quick-buttons {
+      padding: 12px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .quick-buttons button {
+      padding: 9px 13px;
+      background: #f0f2f5;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #172033;
+    }
+
+    .quick-buttons button:hover {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 15px;
+      gap: 10px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #d5d9df;
+      border-radius: 10px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .chat-input input:focus {
+      border-color: #d71920;
+    }
+
+    .send {
+      background: #d71920;
+      color: white;
+      padding: 0 20px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .voice-button {
+      background: #172033;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin-left: auto;
+    }
+
+    .help-box {
+      max-width: 900px;
+      margin: auto;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .help-box h3 {
+      margin-bottom: 10px;
+    }
+
+    .help-box p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #0b1120;
+      color: #cbd5e1;
+      padding: 35px 7%;
+      text-align: center;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .robot-area {
+        width: 100%;
+      }
+
+      section {
+        padding: 50px 5%;
+      }
+
+      .message {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Peça Ajuda</div>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#saude">Saúde</a>
+    <a href="#chat">Chatbot</a>
+    <a href="#ajuda">Ajuda</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+
+  <div class="hero-text">
+
+    <span class="tag">Projeto social • Maringá - PR</span>
+
+    <h1>
+      Informação pode<br>
+      <span>mudar vidas.</span>
+    </h1>
+
+    <p>
+      O Peça Ajuda foi criado para facilitar o acesso a informações
+      sobre saúde, alimentação, abrigo, documentos e outros serviços
+      para quem precisa de ajuda.
+    </p>
+
+    <div class="buttons">
+      <button class="primary" onclick="document.getElementById('chat').scrollIntoView({behavior:'smooth'})">
+        Conversar com o assistente
+      </button>
+
+      <button class="secondary" onclick="document.getElementById('saude').scrollIntoView({behavior:'smooth'})">
+        Encontrar serviços
+      </button>
+    </div>
+
+  </div>
+
+  <div class="robot-area">
+    <div class="robot">🤖</div>
+    <strong>Assistente Peça Ajuda</strong>
+    <small>Estou aqui para ajudar você.</small>
+
+    <button
+      class="voice-button"
+      onclick="falar('Olá! Eu sou o assistente do Peça Ajuda. Estou aqui para ajudar você.')"
+      style="margin:15px 0 0;">
+      🔊 Ouvir
+    </button>
+  </div>
+
+</section>
+
+<div class="credit">
+  <strong>Solution Tech</strong><br>
+  Trabalho feito para Projeto CEEP 2026
+</div>
+
+<section>
+
+  <div class="section-title">
+    <h2>Como funciona?</h2>
+    <p>
+      O objetivo é tornar o acesso à informação simples,
+      rápido e fácil para qualquer pessoa.
+    </p>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3>Escolha o que precisa</h3>
+      <p>
+        Procure por saúde, alimentação, abrigo,
+        documentos ou converse com o assistente.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3>Veja as opções</h3>
+      <p>
+        O sistema apresenta informações e locais
+        que podem ajudar.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3>Encontre no mapa</h3>
+      <p>
+        Toque no botão para abrir o Google Maps
+        e encontrar o serviço em Maringá.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="saude">
+
+  <div class="section-title">
+    <h2>Saúde em Maringá</h2>
+    <p>
+      Encontre diferentes tipos de atendimento e serviços
+      de saúde próximos de você.
+    </p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">🏥</div>
+      <h3>UBS / Clínica geral</h3>
+      <p>Unidades básicas de saúde e atendimento médico.</p>
+      <button class="map-button" onclick="mapa('UBS Unidade Básica de Saúde Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">👩</div>
+      <h3>Ginecologia</h3>
+      <p>Encontre atendimento ginecológico em Maringá.</p>
+      <button class="map-button" onclick="mapa('ginecologista Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">🦷</div>
+      <h3>Dentista</h3>
+      <p>Procure atendimento odontológico.</p>
+      <button class="map-button" onclick="mapa('dentista odontologia Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">👶</div>
+      <h3>Pediatria</h3>
+      <p>Atendimento médico para crianças.</p>
+      <button class="map-button" onclick="mapa('pediatra Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧠</div>
+      <h3>Saúde mental</h3>
+      <p>Psicologia, CAPS e outros serviços de saúde mental.</p>
+      <button class="map-button" onclick="mapa('CAPS saúde mental Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">❤️</div>
+      <h3>Cardiologia</h3>
+      <p>Procure serviços e especialistas em cardiologia.</p>
+      <button class="map-button" onclick="mapa('cardiologista Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">👁️</div>
+      <h3>Oftalmologia</h3>
+      <p>Atendimento relacionado à visão e aos olhos.</p>
+      <button class="map-button" onclick="mapa('oftalmologista Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">🦴</div>
+      <h3>Ortopedia</h3>
+      <p>Atendimento para ossos, músculos e articulações.</p>
+      <button class="map-button" onclick="mapa('ortopedista Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧴</div>
+      <h3>Dermatologia</h3>
+      <p>Cuidados com a pele, cabelos e unhas.</p>
+      <button class="map-button" onclick="mapa('dermatologista Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">🩺</div>
+      <h3>Urologia</h3>
+      <p>Atendimento especializado em urologia.</p>
+      <button class="map-button" onclick="mapa('urologista Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">💊</div>
+      <h3>Medicamentos</h3>
+      <p>Procure farmácias e serviços de medicamentos.</p>
+      <button class="map-button" onclick="mapa('Farmácia Popular Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧪</div>
+      <h3>Exames</h3>
+      <p>Encontre laboratórios e locais de exames.</p>
+      <button class="map-button" onclick="mapa('laboratório exames Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚑</div>
+      <h3>Urgência</h3>
+      <p>Em uma emergência, procure atendimento imediatamente.</p>
+      <button class="map-button" onclick="mapa('UPA Maringá Paraná')">
+        📍 Encontrar
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">📞</div>
+      <h3>SAMU</h3>
+      <p>Em emergência médica, ligue para 192.</p>
+      <button class="map-button" onclick="alert('Em uma emergência médica, ligue 192.')">
+        📞 192
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="help-box" id="ajuda">
+
+    <h3>Você não precisa saber o nome do serviço.</h3>
+
+    <p>
+      Se você não sabe onde procurar ajuda, simplesmente
+      converse com o assistente abaixo e explique o que está
+      acontecendo. Ele pode orientar você sobre o próximo passo.
+    </p>
+
+  </div>
+
+</section>
+
+<section class="chat-section" id="chat">
+
+  <div class="section-title">
+    <h2>Converse com o assistente</h2>
+
+    <p>
+      Você pode perguntar sobre praticamente qualquer assunto.
+      O assistente também pode ajudar a encontrar serviços
+      para pessoas que precisam de apoio.
+    </p>
+  </div>
+
+  <div class="chat-container">
+
+    <div class="chat-header">
+
+      <div class="mini-robot">🤖</div>
+
+      <div>
+        <h3>Assistente Peça Ajuda</h3>
+        <small>Assistente inteligente</small>
+      </div>
+
+      <button
+        class="voice-button"
+        onclick="falarUltimaResposta()">
+        🔊 Ouvir
+      </button>
+
+    </div>
+
+    <div class="messages" id="messages">
+
+      <div class="message bot">
+        Olá! 👋
+
+        Eu sou o assistente do Peça Ajuda.
+
+        Pode conversar comigo sobre qualquer assunto. Se você precisar de ajuda em Maringá, também posso orientar sobre saúde, abrigo, alimentação, documentos, medicamentos e outros serviços.
+
+        Como posso ajudar?
+      </div>
+
+    </div>
+
+    <div class="quick-buttons">
+
+      <button onclick="perguntarRapido('Onde posso encontrar um abrigo em Maringá?')">
+        🏠 Abrigo
+      </button>
+
+      <button onclick="perguntarRapido('Onde posso conseguir comida em Maringá?')">
+        🍲 Comida
+      </button>
+
+      <button onclick="perguntarRapido('Onde posso procurar atendimento de saúde em Maringá?')">
+        🏥 Saúde
+      </button>
+
+      <button onclick="perguntarRapido('Onde posso conseguir medicamentos?')">
+        💊 Remédios
+      </button>
+
+      <button onclick="perguntarRapido('Onde encontro dentista em Maringá?')">
+        🦷 Dentista
+      </button>
+
+      <button onclick="perguntarRapido('Onde posso fazer exames?')">
+        🧪 Exames
+      </button>
+
+      <button onclick="perguntarRapido('Preciso tirar documentos. Onde devo ir?')">
+        📄 Documentos
+      </button>
+
+      <button onclick="perguntarRapido('Estou precisando de ajuda psicológica.')">
+        🧠 Saúde mental
+      </button>
+
+    </div>
+
+    <div class="chat-input">
+
+      <input
+        id="userInput"
+        type="text"
+        placeholder="Digite sua pergunta..."
+        autocomplete="off"
+        onkeydown="if(event.key === 'Enter') enviarMensagem()"
+      >
+
+      <button class="send" onclick="enviarMensagem()">
+        Enviar
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+
+  <p>
+    <strong>Peça Ajuda</strong> — Projeto Solution Tech
+  </p>
+
+  <p style="margin-top:8px;">
+    Trabalho feito para Projeto CEEP 2026
+  </p>
+
+</footer>
+
+<script>
+
+  let historico = [];
+
+  let ultimaResposta = "";
+
+  const mensagens = document.getElementById("messages");
+
+  function mapa(busca) {
+
+    const url =
+      "https://www.google.com/maps/search/" +
+      encodeURIComponent(busca);
+
+    window.open(url, "_blank");
+
+  }
+
+  function adicionarMensagem(texto, tipo) {
+
+    const div = document.createElement("div");
+
+    div.className = "message " + tipo;
+
+    div.textContent = texto;
+
+    mensagens.appendChild(div);
+
+    mensagens.scrollTop = mensagens.scrollHeight;
+
+  }
+
+  function perguntarRapido(texto) {
+
+    document.getElementById("userInput").value = texto;
+
+    enviarMensagem();
+
+  }
+
+  async function enviarMensagem() {
+
+    const input = document.getElementById("userInput");
+
+    const pergunta = input.value.trim();
+
+    if (!pergunta) return;
+
+    adicionarMensagem(pergunta, "user");
+
+    input.value = "";
+
+    const carregando = document.createElement("div");
+
+    carregando.className = "message bot";
+
+    carregando.textContent = "Pensando...";
+
+    carregando.id = "carregando";
+
+    mensagens.appendChild(carregando);
+
+    mensagens.scrollTop = mensagens.scrollHeight;
+
+    try {
+
+      const resposta = await fetch("/api/chat", {
+
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+          message: pergunta,
+          history: historico
+        })
+
+      });
+
+      if (!resposta.ok) {
+        throw new Error("Erro no servidor");
+      }
+
+      const dados = await resposta.json();
+
+      document.getElementById("carregando")?.remove();
+
+      const texto =
+        dados.reply ||
+        "Desculpe, não consegui responder agora.";
+
+      adicionarMensagem(texto, "bot");
+
+      ultimaResposta = texto;
+
+      historico.push({
+        role: "user",
+        content: pergunta
+      });
+
+      historico.push({
+        role: "assistant",
+        content: texto
+      });
+
+      if (historico.length > 20) {
+        historico = historico.slice(-20);
+      }
+
+    } catch (erro) {
+
+      document.getElementById("carregando")?.remove();
+
+      const respostaLocal = respostaLocalIA(pergunta);
+
+      adicionarMensagem(respostaLocal, "bot");
+
+      ultimaResposta = respostaLocal;
+
+    }
+
+  }
+
+  function respostaLocalIA(pergunta) {
+
+    const p = pergunta.toLowerCase();
+
+    if (
+      p.includes("emergência") ||
+      p.includes("urgência") ||
+      p.includes("socorro") ||
+      p.includes("passando mal")
+    ) {
+
+      return `Se for uma emergência médica, procure atendimento imediatamente.
+
+No Brasil, o SAMU atende pelo número 192.
+
+Se houver risco imediato à vida, procure também uma unidade de emergência.`;
+
+    }
+
+    if (
+      p.includes("abrigo") ||
+      p.includes("moradia") ||
+      p.includes("sem teto") ||
+      p.includes("morador de rua")
+    ) {
+
+      return `Posso ajudar a encontrar opções de abrigo e assistência social em Maringá.
+
+Você pode procurar no mapa por "abrigo assistência social Maringá Paraná".`;
+
+    }
+
+    if (
+      p.includes("comida") ||
+      p.includes("alimentação") ||
+      p.includes("fome")
+    ) {
+
+      return `Se você precisa de alimentação, posso ajudar a encontrar restaurantes populares, instituições e pontos de assistência em Maringá.
+
+Também posso procurar um local próximo pelo mapa.`;
+
+    }
+
+    if (
+      p.includes("dentista") ||
+      p.includes("dente") ||
+      p.includes("odont")
+    ) {
+
+      return `Você pode procurar atendimento odontológico em Maringá.
+
+Use o botão de Dentista acima ou pesquise por "dentista odontologia Maringá Paraná" no mapa.`;
+
+    }
+
+    if (
+      p.includes("psicólogo") ||
+      p.includes("psicologia") ||
+      p.includes("ansiedade") ||
+      p.includes("depressão")
+    ) {
+
+      return `Se você está precisando conversar com um profissional de saúde mental, posso ajudar a encontrar psicologia, CAPS ou outros serviços em Maringá.
+
+Se houver risco imediato de você se machucar ou machucar outra pessoa, procure atendimento de emergência imediatamente.`;
+
+    }
+
+    if (
+      p.includes("remédio") ||
+      p.includes("medicamento") ||
+      p.includes("farmácia")
+    ) {
+
+      return `Posso ajudar você a encontrar farmácias e serviços de medicamentos em Maringá.
+
+Também posso orientar sobre onde procurar atendimento de saúde para verificar a necessidade de um medicamento.`;
+
+    }
+
+    return `Posso conversar sobre esse assunto, mas neste momento estou sem conexão com o servidor de IA.
+
+Tente novamente em alguns segundos.
+
+Se você estiver procurando ajuda em Maringá, também posso ajudar com:
+• Saúde
+• Abrigo
+• Alimentação
+• Medicamentos
+• Dentista
+• Exames
+• Documentos
+• Saúde mental`;
+
+  }
+
+  function falar(texto) {
+
+    if (!("speechSynthesis" in window)) {
+
+      alert("Seu navegador não possui suporte para leitura de voz.");
+
+      return;
+
+    }
+
+    speechSynthesis.cancel();
+
+    const fala = new SpeechSynthesisUtterance(texto);
+
+    fala.lang = "pt-BR";
+
+    fala.rate = 0.95;
+
+    fala.pitch = 1;
+
+    speechSynthesis.speak(fala);
+
+  }
+
+  function falarUltimaResposta() {
+
+    if (!ultimaResposta) {
+
+      falar(
+        "Olá! Eu sou o assistente do Peça Ajuda. Como posso ajudar?"
+      );
+
+      return;
+
+    }
+
+    falar(ultimaResposta);
+
+  }
+
+</script>
+
+</body>
+</html>
