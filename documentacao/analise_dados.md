@@ -77,3 +77,20 @@ As distâncias foram classificadas em três categorias:
 A classificação mostra que a maior parte das solicitações está na categoria média, com 5032 registros. Em seguida aparecem as solicitações de longa distância, com 2505 registros, e as de curta distância, com 2463 registros.
 
 Essa classificação permite analisar a distribuição das solicitações de acordo com a distância e pode auxiliar na identificação de regiões que exigem maior deslocamento para o atendimento.
+## Limitações e observações
+
+- A análise foi realizada com os dados disponíveis no arquivo dados.csv.
+- A coluna distancia_solicitacao representa a distância da solicitação até o atendimento, em quilômetros.
+- A coluna tempo_ate_atendimento representa o tempo até o atendimento, em minutos.
+- Existem registros sem tempo de atendimento, portanto as estatísticas dessa variável consideram apenas os valores disponíveis.
+- Os resultados representam o histórico presente no CSV e podem variar caso novos dados sejam adicionados.
+
+## Significado das principais colunas
+
+- id_solicitacao: identificador da solicitação.
+- data_solicitacao: data em que a solicitação foi registrada.
+- tipo_solicitacao: tipo de necessidade solicitada.
+- distancia_solicitacao: distância relacionada à solicitação, em quilômetros.
+- status_solicitacao: situação da solicitação.
+- tempo_ate_atendimento: tempo até o atendimento, em minutos.
+- cidade_solicitacao: cidade onde ocorreu a solicitação.
