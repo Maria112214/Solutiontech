@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistente de Dados | Solution Tech</title>
+
+  <!-- Fontes e Ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS e JS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="../js/chat.js" defer></script>
+</head>
+<body class="pagina-dashboard">
+
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+      <div class="bloco-marca">
+        <div class="logo-icone"><i class="fa-solid fa-robot"></i></div>
+        <div>
+          <span class="marca">Solution Tech</span>
+          <span class="subtitulo">Assistente Inteligente · Dados dos Totens</span>
+        </div>
+      </div>
+
+      <div class="acoes-topo-chat">
+        <div class="status-sistema">
+          <span class="ponto-status ativo"></span>
+          <span class="texto-status">IA Conectada</span>
+        </div>
+        <a href="dashboard.html" class="btn-voltar-chat">
+          <i class="fa-solid fa-arrow-left"></i> Voltar ao Dashboard
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container chat-main">
+    <section class="chat-janela" aria-label="Conversa com o assistente">
+      
+      <div class="chat-janela-topo">
+        <div class="chat-bot-info">
+          <div class="bot-avatar-topo">
+            <i class="fa-solid fa-sparkles"></i>
+          </div>
+          <div>
+            <h2>Assistente Solution Tech</h2>
+            <span>Pergunte qualquer coisa ou consulte <code>dados.csv</code></span>
+          </div>
+        </div>
+        <button id="chat-limpar" type="button" class="btn-limpar-chat">
+          <i class="fa-solid fa-trash-can"></i> Limpar conversa
+        </button>
+      </div>
+
+      <!-- Área de mensagens -->
+      <div id="chat-mensagens" class="chat-mensagens" aria-live="polite"></div>
+
+      <!-- Atalhos rápidos para consultas do CSV -->
+      <div class="chat-sugestoes-area">
+        <span class="sugestoes-titulo"><i class="fa-solid fa-bolt"></i> Dados do CSV:</span>
+        <div id="chat-sugestoes" class="chat-sugestoes"></div>
+      </div>
+
+      <!-- Campo de texto livre para conversar -->
+      <form id="chat-form" class="chat-composer">
+        <div class="composer-select-box">
+          <i class="fa-regular fa-comment-dots"></i>
+          <input
+            type="text"
+            id="chat-pergunta"
+            placeholder="Escreva qualquer pergunta ou mensagem aqui..."
+            autocomplete="off"
+            maxlength="500"
+            required
+          >
+        </div>
+        <button id="chat-enviar" type="submit" class="btn-enviar-chat">
+          <span>Enviar</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+
+    </section>
+  </main>
+</body>
+</html>

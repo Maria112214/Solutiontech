@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumo Geral | Solution Tech</title>
+  
+  <!-- Fontes e Ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Estilo Compartilhado -->
+  <link rel="stylesheet" href="../static/style.css">
+  
+  <!-- Script do Resumo -->
+  <script src="../js/resumo.js" defer></script>
+</head>
+<body class="pagina-resumo">
+
+  <!-- Cabeçalho -->
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+      <div class="bloco-marca">
+        <div class="logo-icone"><i class="fa-solid fa-chart-pie"></i></div>
+        <div>
+          <span class="marca">Solution Tech</span>
+          <span class="subtitulo">Totens de Apoio Social · Maringá</span>
+        </div>
+      </div>
+      <div class="status-sistema">
+        <span class="ponto-status ativo"></span>
+        <span class="texto-status">Sistema Online</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="resumo" class="container">
+    
+    <!-- Título e Navegação -->
+    <div class="painel-topo">
+      <div class="titulo-pagina">
+        <h1>Resumo Geral dos Atendimentos</h1>
+        <p class="descricao-pagina">Visão consolidada das solicitações e métricas por categoria.</p>
+      </div>
+      <div class="barra-resumo">
+        <a href="./dashboard.html" class="btn-primario" style="text-decoration: none; background: #334155;">
+          <i class="fa-solid fa-chart-line"></i> Ver Dashboard com Gráficos
+        </a>
+        <button id="botao-atualizar" type="button" class="btn-primario">
+          <i class="fa-solid fa-rotate-right"></i> Atualizar Dados
+        </button>
+      </div>
+    </div>
+
+    <!-- Indicadores (KPI Cards) -->
+    <section class="indicadores">
+      <article class="indicador azul">
+        <div class="indicador-head">
+          <span class="indicador-titulo">Total de Solicitações</span>
+          <div class="indicador-icone"><i class="fa-solid fa-clipboard-list"></i></div>
+        </div>
+        <div class="indicador-corpo">
+          <p id="total-compras" class="indicador-valor">—</p>
+          <span class="indicador-tag">Total acumulado</span>
+        </div>
+      </article>
+
+      <article class="indicador roxo">
+        <div class="indicador-head">
+          <span class="indicador-titulo">Totens Ativos</span>
+          <div class="indicador-icone"><i class="fa-solid fa-tower-broadcast"></i></div>
+        </div>
+        <div class="indicador-corpo">
+          <p id="total-clientes" class="indicador-valor">—</p>
+          <span class="indicador-tag">Unidades na rede</span>
+        </div>
+      </article>
+
+      <article class="indicador verde">
+        <div class="indicador-head">
+          <span class="indicador-titulo">Tipos de Ajuda</span>
+          <div class="indicador-icone"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        </div>
+        <div class="indicador-corpo">
+          <p id="total-produtos" class="indicador-valor">—</p>
+          <span class="indicador-tag">Categorias prestadas</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Tabela de Detalhamento por Categoria -->
+    <section class="painel">
+      <div class="painel-cabecalho">
+        <div class="painel-titulo">
+          <i class="fa-solid fa-list-check"></i>
+          <h2>Detalhamento por Categoria de Ajuda</h2>
+        </div>
+        <span class="painel-sub">Consolidado do volume total por modalidade</span>
+      </div>
+      <div id="conteudo-resumo">
+        <p style="color: var(--texto-secundario); text-align: center; padding: 2rem;">
+          <i class="fa-solid fa-spinner fa-spin"></i> A carregar dados do resumo...
+        </p>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

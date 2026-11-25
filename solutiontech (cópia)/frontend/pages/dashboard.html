@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Solution Tech</title>
+  
+  <!-- Fontes e Ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="../static/style.css">
+  
+  <!-- Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <!-- Script Principal -->
+  <script src="../js/dashboard.js" defer></script>
+</head>
+<body class="pagina-dashboard">
+
+  <!-- Cabeçalho Principal -->
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+      <div class="bloco-marca">
+        <div class="logo-icone"><i class="fa-solid fa-chart-line"></i></div>
+        <div>
+          <span class="marca">Solution Tech</span>
+          <span class="subtitulo">Totens de Apoio Social · Maringá</span>
+        </div>
+      </div>
+      <div class="status-sistema">
+        <span class="ponto-status ativo"></span>
+        <span class="texto-status">Sistema Online</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="dashboard" class="container">
+    
+    <!-- Título & Barra de Controlo -->
+    <div class="painel-topo">
+      <div class="titulo-pagina">
+        <h1>Dashboard de Atendimentos</h1>
+        <p class="descricao-pagina">Acompanhamento em tempo real das solicitações e atendimentos comunitários.</p>
+      </div>
+      <div class="barra-resumo">
+        <div class="info-periodo">
+          <i class="fa-regular fa-calendar-days"></i>
+          <span id="periodo">Aguardando consulta...</span>
+        </div>
+        <a href="chat.html" class="btn-primario" style="text-decoration: none;">
+          <i class="fa-solid fa-comments"></i> Abrir chat de atendimentos
+        </a>
+        <button id="botao-atualizar" type="button" class="btn-primario">
+          <i class="fa-solid fa-rotate-right"></i> Atualizar Dados
+        </button>
+      </div>
+    </div>
+
+    <!-- Indicadores (KPI Cards) -->
+    <section class="indicadores">
+      <article class="indicador azul">
+        <div class="indicador-head">
+          <span class="indicador-titulo">Total de Solicitações</span>
+          <div class="indicador-icone"><i class="fa-solid fa-clipboard-list"></i></div>
+        </div>
+        <div class="indicador-corpo">
+          <p id="total-compras" class="indicador-valor">—</p>
+          <span class="indicador-tag">Registadas no sistema</span>
+        </div>
+      </article>
+
+      <article class="indicador roxo">
+        <div class="indicador-head">
+          <span class="indicador-titulo">Totens Ativos</span>
+          <div class="indicador-icone"><i class="fa-solid fa-tower-broadcast"></i></div>
+        </div>
+        <div class="indicador-corpo">
+          <p id="total-clientes" class="indicador-valor">—</p>
+          <span class="indicador-tag">Em operação na cidade</span>
+        </div>
+      </article>
+
+      <article class="indicador verde">
+        <div class="indicador-head">
+          <span class="indicador-titulo">Tipos de Ajuda</span>
+          <div class="indicador-icone"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        </div>
+        <div class="indicador-corpo">
+          <p id="total-produtos" class="indicador-valor">—</p>
+          <span class="indicador-tag">Categorias prestadas</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Estado de Carregamento / Aviso -->
+    <div id="aviso-graficos" class="mensagem-status">
+      <i class="fa-solid fa-spinner fa-spin"></i> A carregar métricas dos gráficos...
+    </div>
+
+    <!-- Áreas dos Gráficos -->
+    <section id="graficos" class="grade-graficos" hidden>
+      
+      <article class="painel">
+        <div class="painel-cabecalho">
+          <div class="painel-titulo">
+            <i class="fa-solid fa-pie-chart"></i>
+            <h2>Solicitações por Tipo</h2>
+          </div>
+          <span class="painel-sub">Distribuição por categoria de ajuda</span>
+        </div>
+        <div class="area-grafico">
+          <canvas id="grafico-pagamentos"></canvas>
+        </div>
+      </article>
+
+      <article class="painel">
+        <div class="painel-cabecalho">
+          <div class="painel-titulo">
+            <i class="fa-solid fa-chart-column"></i>
+            <h2>Solicitações por Dia</h2>
+          </div>
+          <span class="painel-sub">Volume diário de chamados</span>
+        </div>
+        <div class="area-grafico">
+          <canvas id="grafico-compras"></canvas>
+        </div>
+      </article>
+
+      <article class="painel grafico-largo">
+        <div class="painel-cabecalho">
+          <div class="painel-titulo">
+            <i class="fa-solid fa-chart-line"></i>
+            <h2>Atendimentos Concluídos por Dia</h2>
+          </div>
+          <span class="painel-sub">Evolução do encerramento de assistências</span>
+        </div>
+        <div class="area-grafico">
+          <canvas id="grafico-faturamento"></canvas>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+</body>
+</html>
